@@ -7,13 +7,13 @@ let sentinelClient;
 // Replace these with your actual Sentinel configuration
 const sentinelConfig = {
     sentinels: [
-        { host: process.env.SENTINEL_HOST_1, port: process.env.SENTINEL_PORT },
-        { host: process.env.SENTINEL_HOST_2, port: process.env.SENTINEL_PORT },
+        { host: 'redis-sentinel-node-0.redis-sentinel-headless.redis.svc.cluster.local', port: 26379 },
+        { host: 'redis-sentinel-node-1.redis-sentinel-headless.redis.svc.cluster.local', port: 26379 },
         // Add more Sentinel instances if needed
     ],
-    name: process.env.MASTER_NAME, // Replace 'mymaster' with your master name
-    password: process.env.REDIS_PASSWORD,
-    sentinelPassword: process.env.SENTINEL_PASSWORD,
+    name: 'mymaster', // Replace 'mymaster' with your master name
+    password: 'password',
+    sentinelPassword: 'password',
 };
 
 const initializeRedisClient = async() => {
