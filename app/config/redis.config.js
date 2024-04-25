@@ -25,8 +25,8 @@ const sentinelConfig = {
         // Add more Sentinel instances if needed
     ],
     name: 'mymaster', // Replace 'mymaster' with your master name
-    password: 'M4MDvf4AQwgbwX6',
-    sentinelPassword: 'M4MDvf4AQwgbwX6',
+    password: 'M4MDvf4AQwgbwX6Y',
+    sentinelPassword: 'M4MDvf4AQwgbwX6Y',
     retryStrategy
 };
 
