@@ -27,15 +27,15 @@ class RedisClient {
             console.log('Connection is now ready to accept commands');
             // Perform operations that require a connection here
         });  
-        redisClient.on('reconnecting', () => {
+        this.client.on('reconnecting', () => {
             console.log('Redis client is reconnecting');
             // Handle reconnecting state, if needed
         });
-        redisClient.on('end', () => {
+        this.client.on('end', () => {
             console.log('Redis client connection has ended');
             // Perform cleanup tasks, if needed
         });
-        redisClient.on('reconnectFailed', () => {
+        this.client.on('reconnectFailed', () => {
             console.error('Redis client failed to reconnect');
             // Handle reconnection failure, if needed
         });    
