@@ -3,7 +3,7 @@ require('dotenv').config();
 //Creating a singleton object for the entire application
 const Redis = require('ioredis');
 
-// Replace these with your actual Sentinel configuration
+//redis config
 const sentinelConfig = {
     sentinels: [
         { host: 'redis-sentinel-node-0.redis-sentinel-headless.redis.svc.cluster.local', port: 26379 },
