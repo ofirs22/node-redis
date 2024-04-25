@@ -4,7 +4,7 @@ exports.hashGet = async(req, res) => {
     console.log("hashGet");
     const { hash, field } = req.params;
     sentinelClient.on('error', err => console.log('Redis Client Error', err));
-    const output = await sentinelClient.hset(hash, field);
+    const output = await sentinelClient.hget(hash, field);
     if(!output){
         console.log('No such field in the specified hash');
         return res.send('No such field in the specified hash')
