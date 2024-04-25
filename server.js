@@ -1,17 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-const Redis = require('ioredis');
-
-
-
-
-const redisClient = require('./app/config/redis.config');
-
-redisClient.on('connect', () => {
-  console.log('Connected to Redis server');
-})
-
 
 app.use(express.json());
 
