@@ -1,6 +1,6 @@
 const sentinelClient = require('../config/redis.config');
 
-exports.hashGetAll = async(req, res) => {
+exports.hashGet = async(req, res) => {
 
     const { hash, field } = req.params;
     sentinelClient.on('error', err => console.log('Redis Client Error', err));
