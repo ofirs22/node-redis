@@ -2,7 +2,6 @@
 require('dotenv').config();
 
 const Redis = require('ioredis');
-let sentinelClient;
 
 // Replace these with your actual Sentinel configuration
 const sentinelConfig = {
@@ -16,24 +15,18 @@ const sentinelConfig = {
     sentinelPassword: 'password',
 };
 
-const initializeRedisClient = async() => {
+class RedisClient {
+    constructor() {
+        this.client = new Redis(sentinelConfig)
+    }
 
-    try {
-        sentinelClient = await new Redis(sentinelConfig);
-        console.log(sentinelClient, "line 23");
-        return sentinelClient;
-    } catch (error) {
-        console.error('Error initializing Redis client:', error);
-        throw error; // Rethrow the error for handling in the caller
+    getClient(){
+        return this.client;
     }
 }
 
-const getClient = () => {
-    console.log('get client', sentinelClient);
-    return sentinelClient
-}
 
-module.exports = {
-    initializeRedisClient,
-    getClient,
-};
+
+const redisClient = new RedisClient();
+
+module.exports = redisClient.getClient();

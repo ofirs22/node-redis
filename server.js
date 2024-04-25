@@ -3,8 +3,9 @@ const app = express();
 const port = 8080;
 
 
-const { initializeRedisClient, getClient } = require('./app/config/redis.config');
-const temp = initializeRedisClient()
+const redisClient = require('./app/config/redis.config');
+
+
 
 
 app.use(express.json());
