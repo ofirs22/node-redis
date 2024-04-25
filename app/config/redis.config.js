@@ -27,7 +27,7 @@ const sentinelConfig = {
     name: 'mymaster', // Replace 'mymaster' with your master name
     password: 'M4MDvf4AQwgbwX6Y',
     sentinelPassword: 'M4MDvf4AQwgbwX6Y',
-    retryStrategy
+    retryStrategy: retryStrategy
 };
 
 class RedisClient {
