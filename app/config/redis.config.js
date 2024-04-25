@@ -20,7 +20,7 @@ const initializeRedisClient = async() => {
 
     try {
         sentinelClient = await new Redis(sentinelConfig);
-        console.log("sentinelClient");
+        console.log(sentinelClient, "line 23");
         return sentinelClient;
     } catch (error) {
         console.error('Error initializing Redis client:', error);
@@ -28,7 +28,12 @@ const initializeRedisClient = async() => {
     }
 }
 
+const getClient = () => {
+    console.log('get client', sentinelClient);
+    return sentinelClient
+}
+
 module.exports = {
     initializeRedisClient,
-    getClient: () => sentinelClient,
+    getClient,
 };

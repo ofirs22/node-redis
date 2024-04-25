@@ -1,4 +1,5 @@
-const sentinelClient = require('../config/redis.config');
+const {getClient} = require('../config/redis.config');
+console.log(getClient());
 
 exports.getValue  = async (req, res) => {
     console.log(sentinelClient);

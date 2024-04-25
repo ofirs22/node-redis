@@ -1,8 +1,12 @@
 module.exports = app => {
-    
+
     require('dotenv').config();
     const router = require('express').Router();
     const redisController = require('../controllers')
+
+    app.get('/', (req, res) => {
+        res.send('success')
+    })
 
     app.get('/setvalue/:key/:value',redisController.setValue);
       
