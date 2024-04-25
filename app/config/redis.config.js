@@ -18,6 +18,31 @@ const sentinelConfig = {
 class RedisClient {
     constructor() {
         this.client = new Redis(sentinelConfig)
+        //redis events listeners
+        this.client.on('connect', () => {
+            console.log('Connection initiation has just started');
+            // Perform operations that require a connection here
+        });
+        this.client.on('ready', () => {
+            console.log('Connection is now ready to accept commands');
+            // Perform operations that require a connection here
+        });  
+        redisClient.on('reconnecting', () => {
+            console.log('Redis client is reconnecting');
+            // Handle reconnecting state, if needed
+        });
+        redisClient.on('end', () => {
+            console.log('Redis client connection has ended');
+            // Perform cleanup tasks, if needed
+        });
+        redisClient.on('reconnectFailed', () => {
+            console.error('Redis client failed to reconnect');
+            // Handle reconnection failure, if needed
+        });    
+        this.client.on('error', (err) => {
+        console.error('Redis connection error:', err);
+        // Handle connection errors here
+        });
     }
 
     getClient(){
