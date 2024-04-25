@@ -18,7 +18,7 @@ module.exports = app => {
     // 
     app.post('/hashsetifnotexists/:hash', redisController.hashSetIfNotExists);
 
-    app.get('/hashgetall/:hash')
+    app.get('/hashgetall/:hash', redisController.hashGetAll)
 
     app.use(`/`, router);
 }
