@@ -3,7 +3,6 @@ const sentinelClient = require('../config/redis.config');
 exports.hashSetIfNotExists = async (req, res) => {
     const body = req.body;
     const { hash } = req.params;
-    const sentinelClient = new Redis(sentinelConfig);
     sentinelClient.on('error', err => console.log('Redis Client Error', err));
     const exists = await sentinelClient.exists(hash)
     if(!exists){
