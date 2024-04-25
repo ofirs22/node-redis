@@ -11,8 +11,8 @@ const sentinelConfig = {
         // Add more Sentinel instances if needed
     ],
     name: 'mymaster', // Replace 'mymaster' with your master name
-    password: 'password',
-    sentinelPassword: 'password',
+    password: 'M4MDvf4AQwgbwX6Y',
+    sentinelPassword: 'M4MDvf4AQwgbwX6Y',
 };
 
 class RedisClient {
