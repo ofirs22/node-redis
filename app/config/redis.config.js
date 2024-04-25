@@ -3,6 +3,20 @@ require('dotenv').config();
 //Creating a singleton object for the entire application
 const Redis = require('ioredis');
 
+//function to calculate retry attempts
+const retryStrategy = (times) => {
+    // Max retry attempts
+    const maxRetryAttempts = 5;
+
+    // Return null to stop retrying if max attempts reached
+    if (times > maxRetryAttempts) {
+        return null;
+    }
+
+    // Calculate delay between retry attempts (exponential backoff)
+    return Math.min(times * 100, 3000); // Exponential backoff with max delay of 3 seconds
+};
+
 //redis config
 const sentinelConfig = {
     sentinels: [
@@ -11,8 +25,9 @@ const sentinelConfig = {
         // Add more Sentinel instances if needed
     ],
     name: 'mymaster', // Replace 'mymaster' with your master name
-    password: 'M4MDvf4AQwgbwX6Y',
-    sentinelPassword: 'M4MDvf4AQwgbwX6Y',
+    password: 'M4MDvf4AQwgbwX6',
+    sentinelPassword: 'M4MDvf4AQwgbwX6',
+    retryStrategy
 };
 
 class RedisClient {
