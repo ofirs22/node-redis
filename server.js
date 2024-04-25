@@ -5,7 +5,7 @@ const port = 8080;
 
 const redisClient = require('./app/config/redis.config');
 
-
+redisClient.set("hhh", "HHH");
 
 
 app.use(express.json());
