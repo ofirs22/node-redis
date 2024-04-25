@@ -13,10 +13,12 @@ module.exports = app => {
     app.get('/getvalue/:key',redisController.getValue);
     // 
     app.post('/hashset/:hash', redisController.hashSet);
-      
+    // 
     app.get('/hashget/:hash/:field', redisController.hashGet);
     // 
-    app.post('/hashsetifnotexists/:hash', redisController.hashSetIfNotExists)
+    app.post('/hashsetifnotexists/:hash', redisController.hashSetIfNotExists);
+
+    app.get('/hashgetall/:hash')
 
     app.use(`/`, router);
 }

@@ -1,6 +1,6 @@
 
 require('dotenv').config();
-
+//Creating a singleton object for the entire application
 const Redis = require('ioredis');
 
 // Replace these with your actual Sentinel configuration

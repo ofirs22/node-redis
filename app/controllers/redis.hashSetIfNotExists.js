@@ -14,6 +14,6 @@ exports.hashSetIfNotExists = async (req, res) => {
         }
 
     }else{
-        res.send('Hash already exists')
+        return res.send('Hash already exists')
     } 
 }
