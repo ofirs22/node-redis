@@ -8,7 +8,7 @@ exports.setValueIfNotExists = async (req, res) => {
     if(!exists){
         const output = await sentinelClient.set(key, value);
         console.log("output",output);
-        if(output >= 0){
+        if(output === 'OK'){
             return res.send('Success');
         }else{
             return res.send('Fail');
