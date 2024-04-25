@@ -4,9 +4,9 @@ exports.hashSet = async (req, res) => {
     console.log("hashSet");
     const body = req.body;
     const { hash } = req.params;
-
+    const fieldValues = Object.entries(body).flat();
     sentinelClient.on('error', err => console.log('Redis Client Error', err));
-    const output = await sentinelClient.hset(hash, body);
+    const output = await sentinelClient.hset(hash, ...fieldValues);
     if(output >= 0){
         console.log('Success');
         return res.send('Success');
